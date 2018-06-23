@@ -68,8 +68,15 @@ function getInfo() {
 
                 var cardLink = $("<a>");
                 $(cardLink).attr("href", result.response.docs[i].web_url);
-                $(cardLink).attr("btn btn-success");
-                $(cardLink).text("Read Here -->")
+                $(cardLink).addClass("btn");
+                $(cardLink).addClass("btn-primary");
+
+                var searchSymbol = $("<i>");
+                $(searchSymbol).addClass("far");
+                $(searchSymbol).addClass("fa-arrow-alt-circle-right");
+                $(cardLink).append(searchSymbol);
+                
+                $(cardLink).append("Read Here");
                 $(cardBody).append(cardLink);
                 
 
