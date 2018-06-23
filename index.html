@@ -13,12 +13,14 @@
 
     <link href="style.css" rel="stylesheet">
 
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    
 </head>
 <body>
 
     <div class="jumbotron">
-        <h1>New York Times Search</h1>
+        <h1><i class="far fa-newspaper"></i>New York Times Search</h1>
     </div>
 
     <div class="container">        
@@ -28,10 +30,6 @@
                     <label for="name-search">Keyword</label>
                     <input class="search-field" id = "keyword"></input>
                 </div>
-                <div class="form-group">
-                    <label for="record-number">Number of Records to Retrieve</label>
-                    <input class="search-field" id="record-number"></input>
-                </div>
                 <div class="form-group">       
                     <label for="start-year">Start Year (Optional)</label>
                     <input class="search-field" id="start-year"></input>
@@ -40,14 +38,35 @@
                     <label for="end-year">End Year (Optional)</label>
                     <input class="search-field" id="end-year"></input>
                 </div>
+                <div class="form-group">
+                        <label for="record-number">Number of Records to Retrieve: </label>
+                        <select id="record-number">
+                            <option selected>Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
 
 
-                <button type="button" id="search-button" class="button btn-primary">Search</button>
+                <button type="button" id="search-button" class="button btn-success"><i class="fas fa-search"></i>Search</button>
 
-                <button type="button" id="clear-button" class="button btn-warning">Clear Results</button>
+                <button type="button" id="clear-button" class="button btn-warning"><i class="far fa-trash-alt"></i>Clear Results</button>
 
             </form>
-</div>
-    
+        </div>
+
+        <div class="container" id="results">
+        </div>
+
+        <script
+         src="https://code.jquery.com/jquery-3.3.1.js"
+         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+         crossorigin="anonymous"></script>
+
+         <script src="app.js"></script>
+
 </body>
 </html>
