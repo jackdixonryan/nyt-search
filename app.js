@@ -1,8 +1,8 @@
 //Creating button functions
 
 var keyword = "";
-var year1 = "";
-var year2 = "";
+var year1 = "1800";
+var year2 = "2018";
 
 function getInfo() {
 
@@ -20,9 +20,9 @@ function getInfo() {
     url += '?' + $.param({
         'api-key': "be051ce4a2914a458d75290b6bccb660",
         'q': keyword,
-        'begin_date': year1 + '0101',
-        'end_date': year2 + '0101',
         'hl': true,
+        'begin_date': year1 + '0101',
+        'end_date': year2 + '1231',
     });
 
     console.log(url);
@@ -33,7 +33,50 @@ function getInfo() {
     }).done(function (result) {
         console.log(result);
         console.log(result.response.docs[0].snippet);
-        $("#results").html(result.response.docs[0].headline.main);
+        var recordNumber = parseInt($("#record-number").val());
+
+
+            for (var i = 0; i < recordNumber + 1; i++) {
+
+
+                //making a card
+                var card = $("<div>")
+                $(card).attr("class", "card");
+
+                var cardImage = $("<img>")
+                var source = result.response.docs[i].multimedia[0].url;
+                var imageLink = "https://static01.nyt.com/" 
+                + source;
+                $(cardImage).attr("src", imageLink);
+
+                $(cardImage).addClass("card-img-top")
+                $(card).append(cardImage);
+
+                var cardBody = $("<div>");
+                $(cardBody).attr("class", "card-body");
+                $(card).append(cardBody);
+
+                var cardTitle = $("<h4>");
+                cardTitle.attr("class", "card-title");
+                $(cardTitle).text(result.response.docs[i].headline.main);
+                $(cardBody).append(cardTitle);
+
+                var cardText = $("<p>");
+                $(cardText).attr("class", "card-text");
+                $(cardText).text(result.response.docs[i].snippet);
+                $(cardBody).append(cardText);
+
+                var cardLink = $("<a>");
+                $(cardLink).attr("href", result.response.docs[i].web_url);
+                $(cardLink).attr("btn btn-success");
+                $(cardLink).text("Read Here -->")
+                $(cardBody).append(cardLink);
+                
+
+                $("#results").append(card);
+            }
+
+
     }).fail(function (err) {
         throw err;
     });
@@ -59,4 +102,8 @@ $("#clear-button").click(function() {
     $("#start-year").val("");
     $("#end-year").val("");
     $("#record-number").val("Select");
+    $("#results").html("");
+    year1 = "1800";
+    year2 = "2018";
+
 });

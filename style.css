@@ -43,6 +43,23 @@ i {
     margin-top: 20px;
 }
 
+.card {
+    margin: 20px;    
+    width: 28%;
+    float: left;
+}
+
+.card-image {
+    max-height: 200px;
+}
+
+@media screen and (max-width: 750px) {
+    .card {
+        width: 90%;
+        float: none;
+    }
+}
+
 @media screen and (max-width: 530px) {
     #record-number {
         float: none;
