@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link href="https://bootswatch.com/4/litera/bootstrap.min.css" 
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h1>New York Times Search</h1>
+    </div>
+
+    <div class="container">        
+        <h3>Search Parameters</h3>
+            <form id="search-parameters">
+                <div class="form-group">
+                    <label for="name-search">Keyword</label>
+                    <input class="search-field" id = "keyword"></input>
+                </div>
+                <div class="form-group">
+                    <label for="record-number">Number of Records to Retrieve</label>
+                    <input class="search-field" id="record-number"></input>
+                </div>
+                <div class="form-group">       
+                    <label for="start-year">Start Year (Optional)</label>
+                    <input class="search-field" id="start-year"></input>
+                </div>
+                <div class="form-group">
+                    <label for="end-year">End Year (Optional)</label>
+                    <input class="search-field" id="end-year"></input>
+                </div>
+
+
+                <button type="button" id="search-button" class="button btn-primary">Search</button>
+
+                <button type="button" id="clear-button" class="button btn-warning">Clear Results</button>
+
+            </form>
+</div>
+    
+</body>
+</html>
